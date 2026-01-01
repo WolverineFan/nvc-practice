@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVC Practice & Learning Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nonviolent Communication Practice Tool</h1>
+            <p class="subtitle">Explore feelings, needs, and empathetic communication</p>
+        </header>
+
+        <!-- Section 1: Feeling Exploration Tool -->
+        <section id="feeling-explorer" class="card">
+            <h2>🎯 Feeling Circumplex</h2>
+            <p class="description">Explore feelings organized by arousal (energy) and valence (pleasantness)</p>
+            
+            <div class="search-box">
+                <input type="text" id="feeling-search" placeholder="Type to search feelings...">
+            </div>
+
+            <div class="feeling-categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="highPleasant">High Energy + Pleasant</button>
+                <button class="category-btn" data-category="highUnpleasant">High Energy + Unpleasant</button>
+                <button class="category-btn" data-category="lowUnpleasant">Low Energy + Unpleasant</button>
+                <button class="category-btn" data-category="lowPleasant">Low Energy + Pleasant</button>
+            </div>
+
+            <div class="circumplex-grid">
+                <div class="quadrant-labels">
+                    <div class="axis-label vertical-label">High Arousal/Energy</div>
+                    <div class="axis-label horizontal-label-left">Unpleasant</div>
+                    <div class="axis-label horizontal-label-right">Pleasant</div>
+                    <div class="axis-label vertical-label-bottom">Low Arousal/Energy</div>
+                </div>
+                <div class="quadrants-container">
+                    <div class="quadrant q1" data-quadrant="highPleasant">
+                        <h3>Energized & Pleasant</h3>
+                        <div id="feelings-q1" class="feelings-grid"></div>
+                    </div>
+                    <div class="quadrant q2" data-quadrant="highUnpleasant">
+                        <h3>Energized & Unpleasant</h3>
+                        <div id="feelings-q2" class="feelings-grid"></div>
+                    </div>
+                    <div class="quadrant q3" data-quadrant="lowUnpleasant">
+                        <h3>Tired & Unpleasant</h3>
+                        <div id="feelings-q3" class="feelings-grid"></div>
+                    </div>
+                    <div class="quadrant q4" data-quadrant="lowPleasant">
+                        <h3>Calm & Pleasant</h3>
+                        <div id="feelings-q4" class="feelings-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Basic Human Needs -->
+        <section id="needs-explorer" class="card">
+            <h2>💎 Basic Human Needs</h2>
+            <p class="description">Discover which needs might be met or unmet</p>
+
+            <div class="needs-categories">
+                <button class="needs-category-btn active" data-needs-category="all">All Needs</button>
+                <button class="needs-category-btn" data-needs-category="connection">Connection</button>
+                <button class="needs-category-btn" data-needs-category="physical">Physical Well-being</button>
+                <button class="needs-category-btn" data-needs-category="autonomy">Autonomy</button>
+                <button class="needs-category-btn" data-needs-category="meaning">Meaning</button>
+            </div>
+
+            <div id="needs-list" class="needs-grid"></div>
+        </section>
+
+        <!-- Section 3: Thought Transformer -->
+        <section id="thought-transformer" class="card">
+            <h2>🔍 Thought Transformer</h2>
+            <p class="description">Transform quasi-feelings into internal feelings and needs</p>
+
+            <div class="transformer-form">
+                <div class="form-group">
+                    <label>I feel...</label>
+                    <select id="quasi-feeling-input">
+                        <option value="">-- Select a quasi-feeling --</option>
+                    </select>
+                    <button id="unpack-btn">Unpack This Feeling</button>
+                </div>
+
+                <div id="transformer-result" class="transformer-output">
+                    <div class="transformer-explanation">
+                        <p><strong>Note:</strong> Words like "betrayed," "attacked," or "ignored" aren't true feelings—they're interpretations about what others did. Let's explore the internal feelings and needs underneath.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: NVC Sentence Builder -->
+        <section id="sentence-builder" class="card">
+            <h2>📝 NVC Sentence Builder</h2>
+            <p class="description">Construct empathetic statements following NVC principles</p>
+
+            <div class="builder-form">
+                <div class="form-group">
+                    <label>When I...</label>
+                    <div class="observation-type-buttons">
+                        <button class="obs-type-btn active" data-obs-type="see">see</button>
+                        <button class="obs-type-btn" data-obs-type="hear">hear</button>
+                        <button class="obs-type-btn" data-obs-type="think">think</button>
+                        <button class="obs-type-btn" data-obs-type="notice">notice</button>
+                    </div>
+                    <textarea id="observation-input" placeholder="Describe what you observed (objective, without judgment)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>I feel...</label>
+                    <div class="selection-with-clear">
+                        <div id="feeling-display" class="selection-display">
+                            <em>Select feelings from the Feeling Circumplex above</em>
+                        </div>
+                        <button id="clear-feelings-btn" class="clear-selection-btn" title="Clear selected feelings">Clear</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Because I need...</label>
+                    <div class="selection-with-clear">
+                        <div id="need-display" class="selection-display">
+                            <em>Select needs from the Basic Human Needs section above</em>
+                        </div>
+                        <button id="clear-needs-btn" class="clear-selection-btn" title="Clear selected needs">Clear</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Would you be willing to...</label>
+                    <textarea id="request-input" placeholder="Make a specific, doable request"></textarea>
+                </div>
+
+                <div class="sentence-output">
+                    <h3>Your NVC Statement:</h3>
+                    <p id="constructed-sentence" class="sentence-result"></p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
