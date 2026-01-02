@@ -5,20 +5,44 @@ const feelings = {
     highPleasant: [
         'excited', 'energetic', 'exhilarated', 'enthusiastic', 'inspired',
         'joyful', 'amazed', 'surprised', 'stimulated', 'alive', 'engaged',
-        'radiant', 'delighted', 'amused', 'curious'
+        'radiant', 'delighted', 'amused', 'curious', 'ecstatic', 'elated',
+        'eager', 'animated', 'aroused', 'astonished', 'awed', 'blissful',
+        'dazzled', 'enchanted', 'energized', 'enlivened', 'enthralled',
+        'entranced', 'exuberant', 'fascinated', 'giddy', 'invigorated',
+        'involved', 'jubilant', 'lively', 'passionate', 'rapturous',
+        'spellbound', 'thrilled', 'tickled', 'vibrant', 'wonder'
     ],
     // Quadrant 2: High Arousal + Unpleasant (Activated Unpleasant)
     highUnpleasant: [
         'angry', 'anxious', 'frustrated', 'stressed', 'tense', 'nervous',
         'overwhelmed', 'irritated', 'impatient', 'upset', 'annoyed',
-        'distressed', 'troubled', 'restless', 'shocked', 'scared', 'afraid'
+        'distressed', 'troubled', 'restless', 'shocked', 'scared', 'afraid',
+        'aggravated', 'agitated', 'alarmed', 'apprehensive', 'edgy',
+        'enraged', 'exasperated', 'fidgety', 'flustered', 'frightened',
+        'frazzled', 'furious', 'hostile', 'incensed', 'indignant', 'irate',
+        'irked', 'irritable', 'jittery', 'livid', 'outraged', 'panicked',
+        'perturbed', 'petrified', 'rattled', 'shaky', 'startled',
+        'stressed out', 'terrified', 'turbulent', 'turmoil', 'unnerved',
+        'unsettled', 'wary'
     ],
     // Quadrant 3: Low Arousal + Unpleasant (Deactivated Unpleasant)
     lowUnpleasant: [
         'sad', 'lonely', 'disappointed', 'discouraged', 'hopeless', 'hurt',
         'depleted', 'exhausted', 'weary', 'fatigue', 'numb', 'disconnected',
         'embarrassed', 'vulnerable', 'hesitant', 'confused', 'puzzled',
-        'reluctant', 'uncomfortable', 'uneasy', 'worried', 'concerned'
+        'reluctant', 'uncomfortable', 'uneasy', 'worried', 'concerned',
+        'agony', 'alienated', 'aloof', 'anguished', 'apathetic', 'baffled',
+        'beat', 'bereaved', 'bewildered', 'bored', 'burnt out', 'cold',
+        'dazed', 'dejected', 'depressed', 'despair', 'despondent', 'detached',
+        'devastated', 'discombobulated', 'disconcerted', 'disgruntled',
+        'disheartened', 'dismayed', 'displeased', 'distant', 'distracted',
+        'distraught', 'disturbed', 'dread', 'foreboding', 'forlorn', 'fragile',
+        'gloomy', 'grief', 'guarded', 'guilty', 'heartbroken', 'heavy hearted',
+        'helpless', 'horrified', 'insecure', 'jealous', 'lethargic', 'listless',
+        'longing', 'lost', 'melancholy', 'miserable', 'mistrustful', 'mortified',
+        'nostalgic', 'pining', 'regretful', 'remorseful', 'removed', 'resentful',
+        'reserved', 'sleepy', 'tired', 'torn', 'troubled', 'unhappy',
+        'uninterested', 'withdrawn', 'worn out', 'wretched'
     ],
     // Quadrant 4: Low Arousal + Pleasant (Deactivated Pleasant)
     lowPleasant: [
@@ -26,7 +50,12 @@ const feelings = {
         'secure', 'relieved', 'trusting', 'grateful', 'thankful', 'tender',
         'warm', 'loving', 'affectionate', 'moved', 'touched', 'open',
         'fulfilled', 'glad', 'happy', 'hopeful', 'confident', 'optimistic',
-        'proud', 'encouraged', 'wonderful'
+        'proud', 'encouraged', 'wonderful', 'absorbed', 'alert', 'appreciative',
+        'centered', 'clear headed', 'compassionate', 'empowered', 'engrossed',
+        'equanimous', 'expectant', 'friendly', 'interested', 'intrigued',
+        'mellow', 'open hearted', 'pleased', 'quiet', 'rejuvenated', 'renewed',
+        'rested', 'restored', 'revived', 'safe', 'self-conscious', 'sensitive',
+        'serene', 'still', 'sympathetic', 'tranquil', 'wistful'
     ],
 };
 
