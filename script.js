@@ -63,27 +63,27 @@ const feelings = {
 const needs = {
     connection: [
         'acceptance', 'affection', 'appreciation', 'belonging', 'closeness',
-        'communication', 'companionship', 'compassion', 'connection', 'consideration',
-        'consistency', 'cooperation', 'empathy', 'inclusion', 'intimacy',
-        'love', 'mutuality', 'nurturing', 'respect', 'safety', 'security',
-        'stability', 'support', 'to know and be known', 'to see and be seen',
+        'communication', 'communion', 'community', 'companionship', 'compassion',
+        'connection', 'consideration', 'consistency', 'cooperation', 'empathy', 'equality',
+        'inclusion', 'intimacy', 'love', 'mutuality', 'nurturing', 'presence',
+        'respect', 'safety', 'security', 'self-respect', 'stability',
+        'support', 'to know and be known', 'to see and be seen',
         'to understand and be understood', 'trust', 'warmth'
     ],
     physical: [
-        'air', 'food', 'movement', 'rest', 'shelter', 'touch', 'water',
-        'health', 'physical safety', 'comfort', 'sexual expression'
+        'air', 'ease', 'food', 'movement', 'exercise', 'rest',
+        'sleep', 'shelter', 'touch', 'water', 'sexual expression'
     ],
     autonomy: [
-        'autonomy', 'freedom', 'independence', 'space', 'spontaneity',
-        'self-expression', 'authenticity', 'dignity', 'integrity'
+        'autonomy', 'authenticity', 'choice', 'freedom', 'independence', 'integrity',
+        'self-expression', 'space', 'spontaneity'
     ],
     meaning: [
-        'awareness', 'celebration', 'challenge', 'clarity', 'competence',
-        'consciousness', 'contribution', 'creativity', 'discovery',
-        'effectiveness', 'growth', 'hope', 'learning', 'mourning',
-        'participation', 'purpose', 'self-expression', 'stimulation',
-        'to matter', 'understanding', 'beauty', 'harmony', 'inspiration',
-        'order', 'peace', 'play', 'joy'
+        'awareness', 'beauty', 'celebration of life', 'challenge', 'clarity',
+        'competence', 'consciousness', 'contribution', 'creativity', 'discovery',
+        'effectiveness', 'efficacy', 'growth', 'harmony', 'hope', 'humor',
+        'inspiration', 'joy', 'learning', 'mourning', 'order', 'participation',
+        'play', 'purpose', 'stimulation', 'to matter', 'understanding'
     ]
 };
 
