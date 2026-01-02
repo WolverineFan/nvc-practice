@@ -310,6 +310,7 @@ function initNeedsExplorer() {
 
 // Sentence Builder
 function initSentenceBuilder() {
+    const perspectiveButtons = document.querySelectorAll('.perspective-btn');
     const observationButtons = document.querySelectorAll('.obs-type-btn');
     const observationInput = document.getElementById('observation-input');
     const feelingDisplay = document.getElementById('feeling-display');
@@ -317,7 +318,39 @@ function initSentenceBuilder() {
     const requestInput = document.getElementById('request-input');
     const sentenceResult = document.getElementById('constructed-sentence');
     
+    const observationLabel = document.getElementById('observation-label');
+    const feelingLabel = document.getElementById('feeling-label');
+    const needLabel = document.getElementById('need-label');
+    const requestLabel = document.getElementById('request-label');
+    
     let selectedObsType = 'see'; // Default value
+    let selectedPerspective = 'self'; // Default: expressing self
+    
+    // Handle perspective toggle
+    perspectiveButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            perspectiveButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedPerspective = btn.dataset.perspective;
+            updateLabels();
+            updateSentence();
+        });
+    });
+    
+    // Update labels based on perspective
+    function updateLabels() {
+        if (selectedPerspective === 'self') {
+            observationLabel.textContent = 'When I...';
+            feelingLabel.textContent = 'I feel...';
+            needLabel.textContent = 'Because I need...';
+            requestLabel.textContent = 'Would you be willing to...';
+        } else {
+            observationLabel.textContent = 'When you...';
+            feelingLabel.textContent = 'You feel...';
+            needLabel.textContent = 'Because you need...';
+            requestLabel.textContent = 'Would you like...';
+        }
+    }
     
     // Handle observation type button clicks
     observationButtons.forEach(btn => {
@@ -336,6 +369,9 @@ function initSentenceBuilder() {
         const feeling = selectedFeelings.length > 0 ? selectedFeelings.join(' and ') : '';
         const need = selectedNeeds.length > 0 ? selectedNeeds.join(' and ') : '';
         const request = requestInput.value.trim();
+        
+        const pronoun = selectedPerspective === 'self' ? 'I' : 'you';
+        const requestPrefix = selectedPerspective === 'self' ? 'Would you be willing to' : 'Would you like';
 
         // Update display areas
         if (selectedFeelings.length > 0) {
@@ -358,15 +394,15 @@ function initSentenceBuilder() {
         let sentence = '';
         
         if (obs) {
-            sentence += `When I ${obsType} ${obs}`;
+            sentence += `When ${pronoun} ${obsType} ${obs}`;
         }
         
         if (feeling) {
-            sentence += (sentence ? ', ' : '') + `I feel ${feeling}`;
+            sentence += (sentence ? ', ' : '') + `${pronoun} feel ${feeling}`;
         }
         
         if (need) {
-            sentence += (sentence ? ' ' : '') + `because I need ${need}`;
+            sentence += (sentence ? ' ' : '') + `because ${pronoun} need ${need}`;
         }
         
         if (sentence) {
@@ -374,7 +410,7 @@ function initSentenceBuilder() {
         }
         
         if (request) {
-            sentence += ` Would you be willing to ${request}?`;
+            sentence += ` ${requestPrefix} ${request}?`;
         }
 
         sentenceResult.textContent = sentence;

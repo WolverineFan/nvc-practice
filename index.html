@@ -101,9 +101,15 @@
             <h2>📝 NVC Sentence Builder</h2>
             <p class="description">Construct empathetic statements following NVC principles</p>
 
+            <div class="perspective-toggle">
+                <label>Perspective:</label>
+                <button class="perspective-btn active" data-perspective="self">Expressing Myself</button>
+                <button class="perspective-btn" data-perspective="empathy">Empathic Receiving</button>
+            </div>
+
             <div class="builder-form">
                 <div class="form-group">
-                    <label>When I...</label>
+                    <label id="observation-label">When I...</label>
                     <div class="observation-type-buttons">
                         <button class="obs-type-btn active" data-obs-type="see">see</button>
                         <button class="obs-type-btn" data-obs-type="hear">hear</button>
@@ -114,7 +120,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>I feel...</label>
+                    <label id="feeling-label">I feel...</label>
                     <div class="selection-with-clear">
                         <div id="feeling-display" class="selection-display">
                             <em>Select feelings from the Feeling Circumplex above</em>
@@ -124,7 +130,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Because I need...</label>
+                    <label id="need-label">Because I need...</label>
                     <div class="selection-with-clear">
                         <div id="need-display" class="selection-display">
                             <em>Select needs from the Basic Human Needs section above</em>
@@ -134,7 +140,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Would you be willing to...</label>
+                    <label id="request-label">Would you be willing to...</label>
                     <textarea id="request-input" placeholder="Make a specific, doable request"></textarea>
                 </div>
 
