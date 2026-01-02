@@ -1,0 +1,11 @@
+{
+  "name": "nvc-test-app",
+  "version": "1.0.0",
+  "description": "Nonviolent Communication Practice Tool",
+  "scripts": {
+    "validate": "node check-validity.js"
+  },
+  "keywords": ["nvc", "nonviolent-communication", "feelings", "needs"],
+  "author": "",
+  "license": "MIT"
+}
