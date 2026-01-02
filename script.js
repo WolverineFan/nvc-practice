@@ -91,27 +91,43 @@ const needs = {
 const quasiFeelings = {
     'abandoned': {
         feelings: ['lonely', 'scared', 'sad', 'hurt', 'vulnerable'],
-        needs: ['connection', 'belonging', 'support', 'closeness', 'care']
+        needs: ['connection', 'belonging', 'support', 'closeness']
+    },
+    'abused': {
+        feelings: ['angry', 'hurt', 'scared', 'devastated', 'betrayed'],
+        needs: ['safety', 'respect', 'dignity', 'trust', 'protection']
     },
     'attacked': {
-        feelings: ['scared', 'angry', 'frustrated', 'hurt', 'defensive'],
+        feelings: ['scared', 'angry', 'frustrated', 'hurt'],
         needs: ['safety', 'respect', 'understanding', 'consideration']
+    },
+    'belittled': {
+        feelings: ['hurt', 'angry', 'embarrassed', 'small'],
+        needs: ['respect', 'dignity', 'to matter', 'recognition']
     },
     'betrayed': {
         feelings: ['angry', 'hurt', 'disappointed', 'sad', 'shocked'],
-        needs: ['trust', 'honesty', 'reliability', 'respect', 'integrity']
+        needs: ['trust', 'honesty', 'integrity', 'respect']
     },
     'blamed': {
         feelings: ['angry', 'frustrated', 'defensive', 'confused', 'hurt'],
         needs: ['understanding', 'fairness', 'respect', 'to be seen']
     },
+    'boxed-in': {
+        feelings: ['frustrated', 'trapped', 'anxious', 'restless'],
+        needs: ['freedom', 'autonomy', 'choice', 'space']
+    },
     'bullied': {
-        feelings: ['scared', 'angry', 'hurt', 'powerless', 'anxious'],
+        feelings: ['scared', 'angry', 'hurt', 'helpless', 'anxious'],
         needs: ['safety', 'respect', 'autonomy', 'consideration']
     },
     'cheated': {
         feelings: ['angry', 'hurt', 'disappointed', 'resentful'],
         needs: ['fairness', 'honesty', 'trust', 'respect', 'integrity']
+    },
+    'cornered': {
+        feelings: ['scared', 'trapped', 'anxious', 'defensive'],
+        needs: ['safety', 'freedom', 'choice', 'space']
     },
     'criticized': {
         feelings: ['hurt', 'defensive', 'frustrated', 'embarrassed'],
@@ -119,23 +135,59 @@ const quasiFeelings = {
     },
     'diminished': {
         feelings: ['hurt', 'frustrated', 'angry', 'embarrassed'],
-        needs: ['respect', 'appreciation', 'to be seen', 'acknowledgment']
+        needs: ['respect', 'appreciation', 'to be seen', 'recognition']
+    },
+    'discounted': {
+        feelings: ['hurt', 'frustrated', 'dismissed', 'unvalued'],
+        needs: ['respect', 'consideration', 'to matter', 'appreciation']
+    },
+    'disrespected': {
+        feelings: ['angry', 'hurt', 'frustrated', 'offended'],
+        needs: ['respect', 'dignity', 'consideration', 'equality']
+    },
+    'distrusted': {
+        feelings: ['hurt', 'sad', 'disconnected', 'wary'],
+        needs: ['trust', 'honesty', 'reliability', 'integrity']
+    },
+    'harassed': {
+        feelings: ['angry', 'frustrated', 'anxious', 'violated'],
+        needs: ['safety', 'respect', 'peace', 'boundaries']
     },
     'ignored': {
-        feelings: ['lonely', 'hurt', 'frustrated', 'sad', 'invisible'],
-        needs: ['connection', 'to be seen', 'acknowledgment', 'consideration', 'mattering']
+        feelings: ['lonely', 'hurt', 'frustrated', 'sad'],
+        needs: ['connection', 'to be seen', 'consideration', 'to matter']
+    },
+    'insulted': {
+        feelings: ['hurt', 'angry', 'offended', 'embarrassed'],
+        needs: ['respect', 'dignity', 'consideration']
+    },
+    'interrupted': {
+        feelings: ['frustrated', 'annoyed', 'dismissed', 'unheard'],
+        needs: ['respect', 'consideration', 'to be heard', 'space']
     },
     'intimidated': {
         feelings: ['scared', 'anxious', 'uncomfortable', 'tense'],
         needs: ['safety', 'equality', 'respect', 'space']
     },
+    'invalidated': {
+        feelings: ['hurt', 'frustrated', 'confused', 'dismissed'],
+        needs: ['understanding', 'respect', 'validation', 'to be seen']
+    },
     'invisible': {
         feelings: ['lonely', 'sad', 'frustrated', 'disconnected'],
-        needs: ['to be seen', 'acknowledgment', 'connection', 'mattering']
+        needs: ['to be seen', 'recognition', 'connection', 'to matter']
     },
-    'judged': {
-        feelings: ['hurt', 'defensive', 'frustrated', 'misunderstood'],
-        needs: ['acceptance', 'understanding', 'respect', 'to be seen']
+    'isolated': {
+        feelings: ['lonely', 'sad', 'disconnected', 'anxious'],
+        needs: ['connection', 'belonging', 'community', 'companionship']
+    },
+    'left out': {
+        feelings: ['lonely', 'sad', 'hurt', 'excluded'],
+        needs: ['belonging', 'inclusion', 'connection', 'consideration']
+    },
+    'let down': {
+        feelings: ['disappointed', 'sad', 'hurt', 'frustrated'],
+        needs: ['trust', 'reliability', 'consideration', 'support']
     },
     'manipulated': {
         feelings: ['angry', 'confused', 'powerless', 'resentful'],
@@ -147,7 +199,15 @@ const quasiFeelings = {
     },
     'neglected': {
         feelings: ['lonely', 'sad', 'hurt', 'frustrated'],
-        needs: ['care', 'consideration', 'support', 'to matter', 'attention']
+        needs: ['care', 'consideration', 'support', 'to matter']
+    },
+    'overworked': {
+        feelings: ['exhausted', 'frustrated', 'overwhelmed', 'resentful'],
+        needs: ['rest', 'balance', 'consideration', 'fairness']
+    },
+    'patronized': {
+        feelings: ['frustrated', 'insulted', 'diminished', 'angry'],
+        needs: ['respect', 'equality', 'dignity', 'recognition']
     },
     'pressured': {
         feelings: ['anxious', 'overwhelmed', 'stressed', 'tense'],
@@ -157,13 +217,29 @@ const quasiFeelings = {
         feelings: ['angry', 'frustrated', 'irritated', 'defensive'],
         needs: ['respect', 'consideration', 'peace', 'space']
     },
+    'put down': {
+        feelings: ['hurt', 'angry', 'embarrassed', 'diminished'],
+        needs: ['respect', 'dignity', 'appreciation', 'support']
+    },
     'rejected': {
         feelings: ['hurt', 'sad', 'lonely', 'disappointed', 'vulnerable'],
         needs: ['acceptance', 'belonging', 'connection', 'appreciation']
     },
-    'used': {
-        feelings: ['angry', 'hurt', 'resentful', 'frustrated'],
-        needs: ['respect', 'consideration', 'mutuality', 'appreciation']
+    'taken for granted': {
+        feelings: ['frustrated', 'hurt', 'unappreciated', 'resentful'],
+        needs: ['appreciation', 'recognition', 'respect', 'consideration']
+    },
+    'threatened': {
+        feelings: ['scared', 'anxious', 'tense', 'alarmed'],
+        needs: ['safety', 'security', 'peace', 'protection']
+    },
+    'tricked': {
+        feelings: ['angry', 'hurt', 'foolish', 'betrayed'],
+        needs: ['honesty', 'trust', 'respect', 'clarity']
+    },
+    'unappreciated': {
+        feelings: ['hurt', 'frustrated', 'sad', 'resentful'],
+        needs: ['appreciation', 'recognition', 'respect', 'to matter']
     },
     'unheard': {
         feelings: ['frustrated', 'lonely', 'disappointed', 'disconnected'],
@@ -171,7 +247,27 @@ const quasiFeelings = {
     },
     'unseen': {
         feelings: ['lonely', 'sad', 'frustrated', 'disconnected'],
-        needs: ['to be seen', 'acknowledgment', 'connection', 'mattering']
+        needs: ['to be seen', 'recognition', 'connection', 'to matter']
+    },
+    'unsupported': {
+        feelings: ['lonely', 'frustrated', 'overwhelmed', 'abandoned'],
+        needs: ['support', 'help', 'connection', 'care']
+    },
+    'unwanted': {
+        feelings: ['hurt', 'sad', 'lonely', 'rejected'],
+        needs: ['belonging', 'acceptance', 'love', 'connection']
+    },
+    'used': {
+        feelings: ['angry', 'hurt', 'resentful', 'frustrated'],
+        needs: ['respect', 'consideration', 'mutuality', 'appreciation']
+    },
+    'victimized': {
+        feelings: ['helpless', 'angry', 'hurt', 'powerless', 'scared'],
+        needs: ['safety', 'empowerment', 'autonomy', 'respect', 'justice']
+    },
+    'violated': {
+        feelings: ['hurt', 'angry', 'traumatized', 'unsafe'],
+        needs: ['safety', 'boundaries', 'respect', 'dignity', 'integrity']
     }
 };
 
@@ -511,7 +607,6 @@ function clearAllNeeds() {
 // Thought Transformer
 function initThoughtTransformer() {
     const quasiFeelingInput = document.getElementById('quasi-feeling-input');
-    const unpackBtn = document.getElementById('unpack-btn');
     const transformerResult = document.getElementById('transformer-result');
 
     // Populate quasi-feelings dropdown
@@ -523,7 +618,8 @@ function initThoughtTransformer() {
         quasiFeelingInput.appendChild(option);
     });
 
-    unpackBtn.addEventListener('click', () => {
+    // Unpack when selection changes
+    quasiFeelingInput.addEventListener('change', () => {
         const input = quasiFeelingInput.value.trim().toLowerCase();
         
         if (!input) {
@@ -532,14 +628,6 @@ function initThoughtTransformer() {
 
         const data = quasiFeelings[input];
         displayUnpackedResult(input, data.feelings, data.needs);
-    });
-
-    // Also unpack when selection changes
-    quasiFeelingInput.addEventListener('change', () => {
-        const input = quasiFeelingInput.value;
-        if (input) {
-            unpackBtn.click();
-        }
     });
 
     function displayUnpackedResult(quasiFeeling, feelingsSuggestions, needsSuggestions) {
