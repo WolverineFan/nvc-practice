@@ -61,7 +61,6 @@ const feelings = {
         'edgy',
         'enraged',
         'exasperated',
-        'fear',
         'fidgety',
         'flustered',
         'frazzled',
@@ -300,6 +299,7 @@ const needs = {
         'exercise',
         'food',
         'movement',
+        'relaxation',
         'rest',
         'sexual expression',
         'shelter',
@@ -353,11 +353,11 @@ const needs = {
 // Quasi-feelings and their translations
 const quasiFeelings = {
     'abandoned': {
-        feelings: ['fear', 'hurt', 'insecure', 'lonely', 'sad', 'scared', 'vulnerable'],
+        feelings: ['afraid', 'hurt', 'insecure', 'lonely', 'sad', 'scared', 'vulnerable'],
         needs: ['belonging', 'closeness', 'connection', 'safety', 'support']
     },
     'abused': {
-        feelings: ['angry', 'devastated', 'grief', 'hurt', 'scared', 'shame'],
+        feelings: ['angry', 'devastated', 'grief', 'hurt', 'scared', 'shame', 'vulnerable'],
         needs: ['freedom', 'respect', 'safety', 'trust', 'understanding']
     },
     'attacked': {
@@ -366,170 +366,166 @@ const quasiFeelings = {
     },
     'belittled': {
         feelings: ['angry', 'embarrassed', 'hurt', 'insecure', 'sad'],
-        needs: ['appreciation', 'belonging', 'recognition', 'respect', 'to matter']
+        needs: ['appreciation', 'belonging', 'recognition', 'respect', 'to matter', 'to see and be seen']
     },
     'betrayed': {
-        feelings: ['angry', 'dazed', 'disappointed', 'hurt', 'sad', 'shame', 'shocked'],
+        feelings: ['angry', 'dazed', 'disappointed', 'hurt', 'sad', 'shame', 'shocked', 'vulnerable'],
         needs: ['integrity', 'respect', 'safety', 'sharing', 'trust']
     },
     'blamed': {
-        feelings: ['angry', 'confused', 'embarrassed', 'frustrated', 'hurt', 'lonely', 'shame'],
+        feelings: ['angry', 'confused', 'embarrassed', 'frustrated', 'hurt', 'lonely', 'shame', 'vulnerable'],
         needs: ['acceptance', 'consideration', 'respect', 'understanding']
     },
     'boxed-in': {
-        feelings: ['anxious', 'concerned', 'frustrated', 'lonely', 'restless'],
-        needs: ['autonomy', 'choice', 'freedom', 'space', 'support', 'understanding']
+        feelings: ['anxious', 'concerned', 'frustrated', 'lonely', 'restless', 'vulnerable'],
+        needs: ['autonomy', 'choice', 'freedom', 'space', 'support', 'to see and be seen', 'understanding']
     },
     'bullied': {
-        feelings: ['angry', 'anxious', 'helpless', 'hurt', 'scared'],
-        needs: ['autonomy', 'consideration', 'respect', 'safety']
+        feelings: ['angry', 'anxious', 'helpless', 'hurt', 'scared', 'vulnerable'],
+        needs: ['acceptance', 'autonomy', 'consideration', 'respect', 'safety']
     },
     'cheated': {
-        feelings: ['angry', 'disappointed', 'hurt', 'resentful'],
-        needs: ['integrity', 'respect', 'trust']
+        feelings: ['angry', 'disappointed', 'hurt', 'resentful', 'sad', 'shame', 'vulnerable'],
+        needs: ['integrity', 'respect', 'safety', 'support', 'trust']
     },
     'cornered': {
-        feelings: ['anxious', 'scared'],
-        needs: ['choice', 'freedom', 'safety', 'space']
+        feelings: ['anxious', 'insecure', 'scared', 'tense', 'uncomfortable', 'vulnerable'],
+        needs: ['choice', 'freedom', 'respect', 'safety', 'space']
     },
     'criticized': {
-        feelings: ['embarrassed', 'frustrated', 'hurt'],
+        feelings: ['embarrassed', 'fragile', 'frustrated', 'hurt', 'shame', 'worried', 'vulnerable'],
         needs: ['acceptance', 'appreciation', 'respect', 'understanding']
     },
     'diminished': {
-        feelings: ['angry', 'embarrassed', 'frustrated', 'hurt'],
-        needs: ['appreciation', 'respect']
+        feelings: ['angry', 'embarrassed', 'frustrated', 'hurt', 'insecure', 'sad', 'vulnerable'],
+        needs: ['appreciation', 'recognition', 'respect']
     },
     'discounted': {
-        feelings: ['frustrated', 'hurt'],
-        needs: ['appreciation', 'consideration', 'respect', 'to matter']
+        feelings: ['confused', 'frustrated', 'insecure', 'hurt', 'worried', 'vulnerable'],
+        needs: ['appreciation', 'consideration', 'respect', 'support', 'to matter']
     },
     'disrespected': {
-        feelings: ['angry', 'frustrated', 'hurt'],
-        needs: ['consideration', 'equality', 'respect']
+        feelings: ['angry', 'frustrated', 'hurt', 'lonely', 'numb'],
+        needs: ['consideration', 'equality', 'respect', 'safety', 'support', 'trust']
     },
     'distrusted': {
-        feelings: ['disconnected', 'hurt', 'sad', 'wary'],
-        needs: ['integrity', 'trust']
+        feelings: ['disconnected', 'furious', 'insecure', 'hurt', 'sad', 'wary'],
+        needs: ['connection', 'integrity', 'respect', 'to see and be seen', 'trust']
     },
     'harassed': {
-        feelings: ['angry', 'anxious', 'frustrated'],
-        needs: ['respect', 'safety']
+        feelings: ['angry', 'anxious', 'frustrated', 'hurt', 'scared', 'tense', 'vulnerable'],
+        needs: ['respect', 'safety', 'space', 'trust']
     },
     'ignored': {
-        feelings: ['frustrated', 'hurt', 'lonely', 'sad'],
-        needs: ['connection', 'consideration', 'to matter']
+        feelings: ['afraid', 'frustrated', 'hurt', 'lonely', 'sad', 'shame', 'vulnerable'],
+        needs: ['belonging', 'connection', 'consideration', 'inclusion', 'to matter']
     },
     'insulted': {
-        feelings: ['angry', 'embarrassed', 'hurt'],
-        needs: ['consideration', 'respect']
-    },
-    'interrupted': {
-        feelings: ['annoyed', 'frustrated'],
-        needs: ['consideration', 'respect', 'space']
+        feelings: ['angry', 'embarrassed', 'hurt', 'insecure', 'sad', 'worried', 'vulnerable'],
+        needs: ['consideration', 'recognition', 'respect', 'support', 'to see and be seen']
     },
     'intimidated': {
-        feelings: ['anxious', 'scared', 'tense', 'uncomfortable'],
-        needs: ['equality', 'respect', 'safety', 'space']
+        feelings: ['anxious', 'lonely', 'panicked', 'scared', 'tense', 'uncomfortable', 'vulnerable'],
+        needs: ['equality', 'respect', 'safety', 'space', 'to matter']
     },
     'invalidated': {
-        feelings: ['confused', 'frustrated', 'hurt'],
-        needs: ['respect', 'understanding']
+        feelings: ['confused', 'frustrated', 'hurt', 'insecure', 'shame', 'vulnerable'],
+        needs: ['inclusion', 'to see and be seen', 'respect', 'understanding']
     },
     'invisible': {
-        feelings: ['disconnected', 'frustrated', 'lonely', 'sad'],
-        needs: ['connection', 'to matter']
+        feelings: ['disconnected', 'frustrated', 'lonely', 'sad', 'shame', 'worried', 'vulnerable'],
+        needs: ['belonging', 'connection', 'inclusion', 'to matter', 'to see and be seen']
     },
     'isolated': {
-        feelings: ['anxious', 'disconnected', 'lonely', 'sad'],
-        needs: ['belonging', 'community', 'companionship', 'connection']
+        feelings: ['afraid', 'anxious', 'disconnected', 'lonely', 'sad', 'shame', 'vulnerable'],
+        needs: ['belonging', 'community', 'companionship', 'connection', 'safety', 'support']
     },
     'left out': {
-        feelings: ['hurt', 'lonely', 'sad'],
-        needs: ['belonging', 'connection', 'consideration', 'inclusion']
+        feelings: ['hurt', 'insecure', 'lonely', 'panicked', 'sad', 'vulnerable'],
+        needs: ['belonging', 'connection', 'consideration', 'inclusion', 'support']
     },
     'let down': {
-        feelings: ['disappointed', 'frustrated', 'hurt', 'sad'],
-        needs: ['consideration', 'support', 'trust']
+        feelings: ['disappointed', 'frustrated', 'hurt', 'lonely', 'sad', 'shame', 'vulnerable'],
+        needs: ['consideration', 'safety', 'support', 'to see and be seen', 'trust']
     },
     'manipulated': {
-        feelings: ['angry', 'confused', 'resentful'],
-        needs: ['autonomy', 'clarity', 'respect', 'trust']
+        feelings: ['angry', 'confused', 'hurt', 'resentful', 'sad', 'vulnerable'],
+        needs: ['autonomy', 'choice', 'clarity', 'respect', 'trust', 'safety']
     },
     'misunderstood': {
-        feelings: ['disconnected', 'disappointed', 'frustrated', 'lonely'],
-        needs: ['clarity', 'connection', 'understanding']
+        feelings: ['angry', 'disconnected', 'disappointed', 'frustrated', 'lonely', 'sad'],
+        needs: ['clarity', 'connection', 'to see and be seen', 'understanding']
     },
     'neglected': {
-        feelings: ['frustrated', 'hurt', 'lonely', 'sad'],
-        needs: ['consideration', 'support', 'to matter']
+        feelings: ['afraid', 'confused', 'frustrated', 'hurt', 'insecure', 'lonely', 'sad'],
+        needs: ['belonging', 'connection', 'consideration', 'support', 'to matter', 'trust']
     },
     'overworked': {
-        feelings: ['exhausted', 'frustrated', 'overwhelmed', 'resentful'],
-        needs: ['consideration', 'rest']
+        feelings: ['exhausted', 'frustrated', 'overwhelmed', 'resentful', 'stressed', 'tired'],
+        needs: ['consideration', 'ease', 'rest', 'support']
     },
     'patronized': {
-        feelings: ['angry', 'frustrated'],
-        needs: ['equality', 'respect']
+        feelings: ['angry', 'frustrated', 'furious', 'hurt', 'insecure', 'resentful', 'sad'],
+        needs: ['choice', 'equality', 'respect', 'safety', 'trust']
     },
     'pressured': {
-        feelings: ['anxious', 'overwhelmed', 'stressed', 'tense'],
-        needs: ['autonomy', 'choice', 'consideration', 'ease', 'space']
+        feelings: ['afraid', 'anxious', 'depressed', 'overwhelmed', 'stressed', 'tense'],
+        needs: ['autonomy', 'choice', 'consideration', 'ease', 'space', 'support', 'trust']
     },
     'provoked': {
-        feelings: ['angry', 'frustrated', 'irritated'],
-        needs: ['consideration', 'respect', 'space']
+        feelings: ['angry', 'frustrated', 'irritated', 'insecure', 'stressed'],
+        needs: ['consideration', 'relaxation', 'respect', 'safety', 'space', 'trust', 'understanding']
     },
     'put down': {
-        feelings: ['angry', 'embarrassed', 'hurt'],
-        needs: ['appreciation', 'respect', 'support']
+        feelings: ['angry', 'confused', 'embarrassed', 'hurt', 'insecure', 'sad', 'worried'],
+        needs: ['appreciation', 'clarity', 'respect', 'safety', 'support']
     },
     'rejected': {
-        feelings: ['disappointed', 'hurt', 'lonely', 'sad', 'vulnerable'],
-        needs: ['acceptance', 'appreciation', 'belonging', 'connection']
+        feelings: ['afraid', 'disappointed', 'hurt', 'irritated', 'lonely', 'sad', 'vulnerable'],
+        needs: ['acceptance', 'appreciation', 'belonging', 'connection', 'inclusion', 'support', 'trust']
     },
     'taken for granted': {
-        feelings: ['frustrated', 'hurt', 'resentful'],
-        needs: ['appreciation', 'consideration', 'respect']
+        feelings: ['angry', 'disappointed', 'frustrated', 'hurt', 'irritated', 'resentful'],
+        needs: ['appreciation', 'consideration', 'respect', 'to matter', 'trust', 'understanding']
     },
     'threatened': {
-        feelings: ['alarmed', 'anxious', 'scared', 'tense'],
-        needs: ['safety', 'security']
+        feelings: ['afraid', 'alarmed', 'angry', 'anxious', 'distraught', 'panicked', 'scared', 'tense'],
+        needs: ['ease', 'relaxation', 'safety', 'security', 'trust']
     },
     'tricked': {
-        feelings: ['angry', 'hurt'],
-        needs: ['clarity', 'respect', 'trust']
+        feelings: ['angry', 'furious', 'hurt', 'lonely', 'resentful', 'sad', 'shame', 'shocked', 'vulnerable', 'worried'],
+        needs: ['belonging', 'clarity', 'connection', 'respect', 'trust']
     },
     'unappreciated': {
-        feelings: ['frustrated', 'hurt', 'resentful', 'sad'],
-        needs: ['appreciation', 'respect', 'to matter']
+        feelings: ['angry', 'disappointed', 'frustrated', 'hurt', 'lost', 'resentful', 'sad'],
+        needs: ['appreciation', 'connection', 'respect', 'to see and be seen', 'to matter']
     },
     'unheard': {
-        feelings: ['disconnected', 'disappointed', 'frustrated', 'lonely'],
+        feelings: ['angry', 'depressed', 'disconnected', 'disappointed', 'frustrated', 'hurt', 'lonely'],
         needs: ['connection', 'consideration', 'understanding']
     },
     'unseen': {
-        feelings: ['disconnected', 'frustrated', 'lonely', 'sad'],
-        needs: ['connection', 'to matter']
+        feelings: ['disconnected', 'frustrated', 'lonely', 'numb', 'sad', 'shame', 'vulnerable'],
+        needs: ['connection', 'to see and be seen', 'to matter', 'understanding']
     },
     'unsupported': {
-        feelings: ['frustrated', 'lonely', 'overwhelmed'],
-        needs: ['connection', 'support']
+        feelings: ['disappointed', 'frustrated', 'lonely', 'overwhelmed', 'sad', 'shame', 'vulnerable'],
+        needs: ['appreciation', 'connection', 'support', 'trust']
     },
     'unwanted': {
-        feelings: ['hurt', 'lonely', 'sad'],
-        needs: ['acceptance', 'belonging', 'connection', 'love']
+        feelings: ['afraid', 'angry', 'hurt', 'lonely', 'panicked', 'sad', 'shame', 'vulnerable'],
+        needs: ['acceptance', 'belonging', 'connection', 'inclusion', 'love']
     },
     'used': {
-        feelings: ['angry', 'frustrated', 'hurt', 'resentful'],
-        needs: ['appreciation', 'consideration', 'mutuality', 'respect']
+        feelings: ['angry', 'frustrated', 'hurt', 'resentful', 'shame', 'vulnerable'],
+        needs: ['appreciation', 'connection', 'consideration', 'mutuality', 'respect', 'trust']
     },
     'victimized': {
-        feelings: ['angry', 'helpless', 'hurt', 'scared'],
-        needs: ['autonomy', 'respect', 'safety']
+        feelings: ['angry', 'frustrated', 'helpless', 'hurt', 'sad', 'scared', 'vulnerable'],
+        needs: ['autonomy', 'respect', 'safety', 'to see and be seen', 'trust', 'understanding']
     },
     'violated': {
-        feelings: ['angry', 'hurt'],
-        needs: ['integrity', 'respect', 'safety']
+        feelings: ['afraid', 'angry', 'hurt', 'lonely', 'sad', 'shame', 'vulnerable'],
+        needs: ['integrity', 'respect', 'safety', 'support', 'trust']
     }
 };
