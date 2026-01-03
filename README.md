@@ -78,7 +78,7 @@ The script will list specific invalid entries and exit with code 1 on failure.
 
 ## Features
 
-1. **Feeling Circumplex**: Explore 241 feelings organized by Russell & Feldman Barrett's circumplex model
+1. **Feeling Explorer**: Explore 241 feelings organized by Russell & Feldman Barrett's circumplex model
 2. **Needs Explorer**: Browse 82 universal human needs across 4 categories
 3. **Thought Transformer**: Convert quasi-feelings into authentic feelings and needs
 4. **Sentence Builder**: Construct NVC statements with observation, feeling, need, and request

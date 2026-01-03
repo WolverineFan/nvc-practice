@@ -262,7 +262,7 @@ function initSentenceBuilder() {
         if (selectedFeelings.length > 0) {
             feelingDisplay.innerHTML = `<strong>${selectedFeelings.join(', ')}</strong>`;
         } else {
-            feelingDisplay.innerHTML = '<em>Select feelings from the Feeling Circumplex above</em>';
+            feelingDisplay.innerHTML = '<em>Select feelings from the Feeling Explorer above</em>';
         }
 
         if (selectedNeeds.length > 0) {
@@ -326,7 +326,7 @@ function updateSentenceFromSelections() {
 function clearAllFeelings() {
     selectedFeelings = [];
 
-    // Remove selected class from all feeling items in circumplex
+    // Remove selected class from all feeling items in explorer
     document.querySelectorAll('.feeling-item.selected').forEach(item => {
         item.classList.remove('selected');
     });
