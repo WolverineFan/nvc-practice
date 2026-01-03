@@ -105,7 +105,12 @@ header h1 {
     color: white;
 }
 
-.feelings-grid,
+.feelings-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .needs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -116,11 +121,6 @@ header h1 {
 .circumplex-grid {
     position: relative;
     margin-top: 30px;
-}
-
-.quadrant-labels {
-    position: relative;
-    pointer-events: none;
 }
 
 .axis-label {
@@ -160,13 +160,18 @@ header h1 {
 .quadrants-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 2px;
     background: #667eea;
     border: 3px solid #667eea;
     border-radius: 12px;
     overflow: hidden;
     margin: 40px 60px;
+}
+
+.quadrants-container.single-view {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
 }
 
 .quadrant {
@@ -186,7 +191,8 @@ header h1 {
 }
 
 .quadrant .feelings-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 8px;
 }
 
@@ -195,7 +201,18 @@ header h1 {
 .q3 { background: #f3e5f5; }
 .q4 { background: #e3f2fd; }
 
-.feeling-item,
+.feeling-item {
+    padding: 12px 16px;
+    background: #f8f9ff;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
 .need-item {
     padding: 12px;
     background: #f8f9ff;

@@ -32,6 +32,14 @@ function initFeelingExplorer() {
             ? ['highPleasant', 'highUnpleasant', 'lowUnpleasant', 'lowPleasant']
             : [currentCategory];
 
+        // Toggle single-view class on container
+        const quadrantsContainer = document.querySelector('.quadrants-container');
+        if (currentCategory === 'all') {
+            quadrantsContainer.classList.remove('single-view');
+        } else {
+            quadrantsContainer.classList.add('single-view');
+        }
+
         // Clear all quadrants first
         Object.values(quadrantContainers).forEach(container => {
             container.innerHTML = '';
