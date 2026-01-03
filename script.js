@@ -25,6 +25,24 @@ function initCollapsibleCards() {
             btn.textContent = card.classList.contains('collapsed') ? '+' : '−';
         });
     });
+
+    // Collapse feeling explorer and needs explorer by default on mobile
+    if (window.innerWidth <= 768) {
+        const feelingExplorer = document.getElementById('feeling-explorer');
+        const needsExplorer = document.getElementById('needs-explorer');
+
+        if (feelingExplorer) {
+            feelingExplorer.classList.add('collapsed');
+            const btn = feelingExplorer.querySelector('.collapse-btn');
+            if (btn) btn.textContent = '+';
+        }
+
+        if (needsExplorer) {
+            needsExplorer.classList.add('collapsed');
+            const btn = needsExplorer.querySelector('.collapse-btn');
+            if (btn) btn.textContent = '+';
+        }
+    }
 }
 
 // Feeling Explorer
