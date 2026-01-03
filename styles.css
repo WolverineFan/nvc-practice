@@ -253,6 +253,8 @@ header h1 {
     border: 2px solid transparent;
     font-weight: 500;
     white-space: nowrap;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .need-item {
@@ -264,6 +266,8 @@ header h1 {
     transition: all 0.3s;
     border: 2px solid transparent;
     font-weight: 500;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .feeling-item:hover,
@@ -279,6 +283,15 @@ header h1 {
     background: #667eea;
     color: white;
     border-color: #4c5fd9;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.feeling-item.selected:hover,
+.need-item.selected:hover {
+    background: #5568d3;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3), 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 /* Sentence Builder */

@@ -492,6 +492,10 @@ const quasiFeelings = {
         feelings: ['afraid', 'alarmed', 'angry', 'anxious', 'distraught', 'panicked', 'scared', 'tense'],
         needs: ['ease', 'relaxation', 'safety', 'security', 'trust']
     },
+    'trapped': {
+        feelings: ['anxious', 'frustrated', 'helpless', 'overwhelmed', 'restless', 'stressed', 'vulnerable'],
+        needs: ['autonomy', 'choice', 'freedom', 'space', 'support']
+    },
     'tricked': {
         feelings: ['angry', 'furious', 'hurt', 'lonely', 'resentful', 'sad', 'shame', 'shocked', 'vulnerable', 'worried'],
         needs: ['belonging', 'clarity', 'connection', 'respect', 'trust']

@@ -86,7 +86,8 @@ function initFeelingExplorer() {
                     div.classList.add('selected');
                 }
 
-                div.addEventListener('click', () => {
+                const toggleFeeling = (e) => {
+                    e.preventDefault();
                     div.classList.toggle('selected');
 
                     // Update global selection
@@ -100,7 +101,10 @@ function initFeelingExplorer() {
 
                     // Update sentence builder
                     updateSentenceFromSelections();
-                });
+                };
+
+                div.addEventListener('click', toggleFeeling);
+                div.addEventListener('touchend', toggleFeeling);
                 container.appendChild(div);
             });
         });
@@ -154,7 +158,8 @@ function initNeedsExplorer() {
                 div.classList.add('selected');
             }
 
-            div.addEventListener('click', () => {
+            const toggleNeed = (e) => {
+                e.preventDefault();
                 div.classList.toggle('selected');
 
                 // Update global selection
@@ -168,7 +173,10 @@ function initNeedsExplorer() {
 
                 // Update sentence builder
                 updateSentenceFromSelections();
-            });
+            };
+
+            div.addEventListener('click', toggleNeed);
+            div.addEventListener('touchend', toggleNeed);
             needsList.appendChild(div);
         });
     }
@@ -412,7 +420,8 @@ function initThoughtTransformer() {
                 div.classList.add('selected');
             }
 
-            div.addEventListener('click', () => {
+            const toggleFeeling = (e) => {
+                e.preventDefault();
                 div.classList.toggle('selected');
 
                 // Update global selection
@@ -426,7 +435,10 @@ function initThoughtTransformer() {
 
                 // Update sentence builder
                 updateSentenceFromSelections();
-            });
+            };
+
+            div.addEventListener('click', toggleFeeling);
+            div.addEventListener('touchend', toggleFeeling);
 
             feelingsList.appendChild(div);
         });
@@ -443,7 +455,8 @@ function initThoughtTransformer() {
                 div.classList.add('selected');
             }
 
-            div.addEventListener('click', () => {
+            const toggleNeed = (e) => {
+                e.preventDefault();
                 div.classList.toggle('selected');
 
                 // Update global selection
@@ -457,7 +470,10 @@ function initThoughtTransformer() {
 
                 // Update sentence builder
                 updateSentenceFromSelections();
-            });
+            };
+
+            div.addEventListener('click', toggleNeed);
+            div.addEventListener('touchend', toggleNeed);
 
             needsList.appendChild(div);
         });
