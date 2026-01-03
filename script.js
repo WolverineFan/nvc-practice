@@ -7,11 +7,25 @@ let selectedNeeds = [];
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', () => {
+    initCollapsibleCards();
     initFeelingExplorer();
     initNeedsExplorer();
     initSentenceBuilder();
     initThoughtTransformer();
 });
+
+// Collapsible Cards
+function initCollapsibleCards() {
+    const collapseButtons = document.querySelectorAll('.collapse-btn');
+    collapseButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const card = e.target.closest('.card');
+            card.classList.toggle('collapsed');
+            // Update button text
+            btn.textContent = card.classList.contains('collapsed') ? '+' : '−';
+        });
+    });
+}
 
 // Feeling Explorer
 function initFeelingExplorer() {

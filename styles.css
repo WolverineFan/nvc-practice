@@ -41,6 +41,48 @@ header h1 {
     padding: 30px;
     margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.card.collapsed .card-content {
+    display: none;
+}
+
+.collapse-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.collapse-btn:hover {
+    background: #5568d3;
+    transform: scale(1.1);
+}
+
+.card.collapsed .collapse-btn {
+    transform: rotate(90deg);
+}
+
+.card.collapsed .collapse-btn:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+.intro-section .card-content {
+    padding-right: 50px;
 }
 
 .card h2 {
@@ -250,6 +292,7 @@ header h1 {
     background: #f8f9ff;
     border-radius: 8px;
     border-left: 4px solid #667eea;
+    flex-wrap: wrap;
 }
 
 .perspective-toggle label {
@@ -268,6 +311,7 @@ header h1 {
     font-weight: 600;
     font-size: 0.95rem;
     transition: all 0.3s;
+    white-space: nowrap;
 }
 
 .perspective-btn:hover {
