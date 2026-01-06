@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNeedsExplorer();
     initSentenceBuilder();
     initThoughtTransformer();
+    initCopyButton();
 });
 
 // Collapsible Cards
@@ -289,8 +290,11 @@ function initSentenceBuilder() {
             needDisplay.innerHTML = '<em>Select needs from the Basic Human Needs section above</em>';
         }
 
+        const copyBtn = document.getElementById('copy-sentence-btn');
+
         if (!obs && !feeling && !need && !request) {
             sentenceResult.textContent = '';
+            if (copyBtn) copyBtn.style.display = 'none';
             return;
         }
 
@@ -317,6 +321,11 @@ function initSentenceBuilder() {
         }
 
         sentenceResult.textContent = sentence;
+
+        // Show copy button when there's content
+        if (copyBtn && sentence) {
+            copyBtn.style.display = 'flex';
+        }
     }
 
     // Add event listeners
@@ -512,4 +521,32 @@ function initThoughtTransformer() {
         `;
         transformerResult.innerHTML = html;
     }
+}
+
+// Copy to Clipboard Functionality
+function initCopyButton() {
+    const copyBtn = document.getElementById('copy-sentence-btn');
+    const constructedSentence = document.getElementById('constructed-sentence');
+
+    copyBtn.addEventListener('click', async () => {
+        const text = constructedSentence.textContent;
+
+        if (!text || text.trim() === '') return;
+
+        try {
+            await navigator.clipboard.writeText(text);
+
+            // Visual feedback
+            copyBtn.classList.add('copied');
+            const originalHTML = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"></polyline></svg>';
+
+            setTimeout(() => {
+                copyBtn.classList.remove('copied');
+                copyBtn.innerHTML = originalHTML;
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+        }
+    });
 }

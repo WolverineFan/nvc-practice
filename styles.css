@@ -478,6 +478,36 @@ header h1 {
     font-style: italic;
 }
 
+.copy-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-btn:hover {
+    background: #5568d3;
+    transform: scale(1.05);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+.copy-btn.copied {
+    background: #4caf50;
+}
+
+.copy-btn svg {
+    display: block;
+}
+
 /* Thought Transformer */
 .transformer-form {
     display: flex;
