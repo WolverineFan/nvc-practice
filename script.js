@@ -5,8 +5,44 @@
 let selectedFeelings = [];
 let selectedNeeds = [];
 
+// Scroll detection to prevent accidental taps on mobile
+let isScrolling = false;
+let scrollTimeout = null;
+let touchStartY = 0;
+let touchMoved = false;
+
+function initScrollDetection() {
+    // Track scroll state
+    window.addEventListener('scroll', () => {
+        isScrolling = true;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+        }, 150);
+    }, { passive: true });
+
+    // Track touch movement
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+        touchMoved = false;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+        const touchY = e.touches[0].clientY;
+        if (Math.abs(touchY - touchStartY) > 10) {
+            touchMoved = true;
+        }
+    }, { passive: true });
+}
+
+// Helper to check if tap should be ignored (user was scrolling)
+function shouldIgnoreTap() {
+    return isScrolling || touchMoved;
+}
+
 // Initialize the app
 document.addEventListener('DOMContentLoaded', () => {
+    initScrollDetection();
     initCollapsibleCards();
     initFeelingExplorer();
     initNeedsExplorer();
@@ -106,6 +142,10 @@ function initFeelingExplorer() {
                 }
 
                 const toggleFeeling = (e) => {
+                    // Ignore if user was scrolling
+                    if (e.type === 'touchend' && shouldIgnoreTap()) {
+                        return;
+                    }
                     e.preventDefault();
                     div.classList.toggle('selected');
 
@@ -122,7 +162,7 @@ function initFeelingExplorer() {
                     updateSentenceFromSelections();
                 };
 
-                div.addEventListener('click', toggleFeeling);
+                div.addEventListener('click', (e) => { if (e.pointerType !== 'touch') toggleFeeling(e); });
                 div.addEventListener('touchend', toggleFeeling);
                 container.appendChild(div);
             });
@@ -178,6 +218,10 @@ function initNeedsExplorer() {
             }
 
             const toggleNeed = (e) => {
+                // Ignore if user was scrolling
+                if (e.type === 'touchend' && shouldIgnoreTap()) {
+                    return;
+                }
                 e.preventDefault();
                 div.classList.toggle('selected');
 
@@ -194,7 +238,7 @@ function initNeedsExplorer() {
                 updateSentenceFromSelections();
             };
 
-            div.addEventListener('click', toggleNeed);
+            div.addEventListener('click', (e) => { if (e.pointerType !== 'touch') toggleNeed(e); });
             div.addEventListener('touchend', toggleNeed);
             needsList.appendChild(div);
         });
@@ -448,6 +492,10 @@ function initThoughtTransformer() {
             }
 
             const toggleFeeling = (e) => {
+                // Ignore if user was scrolling
+                if (e.type === 'touchend' && shouldIgnoreTap()) {
+                    return;
+                }
                 e.preventDefault();
                 div.classList.toggle('selected');
 
@@ -464,7 +512,7 @@ function initThoughtTransformer() {
                 updateSentenceFromSelections();
             };
 
-            div.addEventListener('click', toggleFeeling);
+            div.addEventListener('click', (e) => { if (e.pointerType !== 'touch') toggleFeeling(e); });
             div.addEventListener('touchend', toggleFeeling);
 
             feelingsList.appendChild(div);
@@ -483,6 +531,10 @@ function initThoughtTransformer() {
             }
 
             const toggleNeed = (e) => {
+                // Ignore if user was scrolling
+                if (e.type === 'touchend' && shouldIgnoreTap()) {
+                    return;
+                }
                 e.preventDefault();
                 div.classList.toggle('selected');
 
@@ -499,7 +551,7 @@ function initThoughtTransformer() {
                 updateSentenceFromSelections();
             };
 
-            div.addEventListener('click', toggleNeed);
+            div.addEventListener('click', (e) => { if (e.pointerType !== 'touch') toggleNeed(e); });
             div.addEventListener('touchend', toggleNeed);
 
             needsList.appendChild(div);
