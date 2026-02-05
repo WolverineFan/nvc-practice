@@ -690,3 +690,16 @@ header h1 {
         touch-action: pan-y;
     }
 }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: white;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
