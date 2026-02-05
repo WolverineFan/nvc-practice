@@ -657,4 +657,36 @@ header h1 {
         flex-direction: column;
         align-items: stretch;
     }
+
+    /* Prevent accidental taps while scrolling on mobile */
+    .feeling-item,
+    .need-item,
+    .suggestion-item {
+        padding: 16px 20px;
+        min-height: 48px;
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .feeling-item:hover,
+    .need-item:hover,
+    .suggestion-item:hover {
+        transform: none;
+    }
+
+    .feeling-item:active,
+    .need-item:active,
+    .suggestion-item:active {
+        background: #667eea;
+        color: white;
+        transform: scale(0.98);
+    }
+
+    .category-btn,
+    .needs-category-btn {
+        padding: 12px 20px;
+        min-height: 44px;
+        touch-action: pan-y;
+    }
 }
