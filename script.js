@@ -40,6 +40,50 @@ function shouldIgnoreTap() {
     return isScrolling || touchMoved;
 }
 
+// Common function to create selectable items (feelings or needs)
+function createSelectableItems(items, options) {
+    const { className, selectedArray, container } = options;
+
+    items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = className;
+        div.textContent = item;
+
+        // Check if already selected
+        if (selectedArray.includes(item)) {
+            div.classList.add('selected');
+        }
+
+        const toggleItem = (e) => {
+            // Ignore if user was scrolling
+            if (e.type === 'touchend' && shouldIgnoreTap()) {
+                return;
+            }
+            e.preventDefault();
+            div.classList.toggle('selected');
+
+            // Update selection array
+            if (div.classList.contains('selected')) {
+                if (!selectedArray.includes(item)) {
+                    selectedArray.push(item);
+                }
+            } else {
+                const index = selectedArray.indexOf(item);
+                if (index > -1) {
+                    selectedArray.splice(index, 1);
+                }
+            }
+
+            // Update sentence builder
+            updateSentenceFromSelections();
+        };
+
+        div.addEventListener('click', (e) => { if (e.pointerType !== 'touch') toggleItem(e); });
+        div.addEventListener('touchend', toggleItem);
+        container.appendChild(div);
+    });
+}
+
 // Initialize the app
 document.addEventListener('DOMContentLoaded', () => {
     initScrollDetection();
@@ -131,40 +175,10 @@ function initFeelingExplorer() {
             // Sort alphabetically
             feelingsToShow.sort();
 
-            feelingsToShow.forEach(feeling => {
-                const div = document.createElement('div');
-                div.className = 'feeling-item';
-                div.textContent = feeling;
-
-                // Check if already selected
-                if (selectedFeelings.includes(feeling)) {
-                    div.classList.add('selected');
-                }
-
-                const toggleFeeling = (e) => {
-                    // Ignore if user was scrolling
-                    if (e.type === 'touchend' && shouldIgnoreTap()) {
-                        return;
-                    }
-                    e.preventDefault();
-                    div.classList.toggle('selected');
-
-                    // Update global selection
-                    if (div.classList.contains('selected')) {
-                        if (!selectedFeelings.includes(feeling)) {
-                            selectedFeelings.push(feeling);
-                        }
-                    } else {
-                        selectedFeelings = selectedFeelings.filter(f => f !== feeling);
-                    }
-
-                    // Update sentence builder
-                    updateSentenceFromSelections();
-                };
-
-                div.addEventListener('click', (e) => { if (e.pointerType !== 'touch') toggleFeeling(e); });
-                div.addEventListener('touchend', toggleFeeling);
-                container.appendChild(div);
+            createSelectableItems(feelingsToShow, {
+                className: 'feeling-item',
+                selectedArray: selectedFeelings,
+                container: container
             });
         });
     }
@@ -207,40 +221,10 @@ function initNeedsExplorer() {
         // Sort alphabetically
         needsToShow.sort();
 
-        needsToShow.forEach(need => {
-            const div = document.createElement('div');
-            div.className = 'need-item';
-            div.textContent = need;
-
-            // Check if already selected
-            if (selectedNeeds.includes(need)) {
-                div.classList.add('selected');
-            }
-
-            const toggleNeed = (e) => {
-                // Ignore if user was scrolling
-                if (e.type === 'touchend' && shouldIgnoreTap()) {
-                    return;
-                }
-                e.preventDefault();
-                div.classList.toggle('selected');
-
-                // Update global selection
-                if (div.classList.contains('selected')) {
-                    if (!selectedNeeds.includes(need)) {
-                        selectedNeeds.push(need);
-                    }
-                } else {
-                    selectedNeeds = selectedNeeds.filter(n => n !== need);
-                }
-
-                // Update sentence builder
-                updateSentenceFromSelections();
-            };
-
-            div.addEventListener('click', (e) => { if (e.pointerType !== 'touch') toggleNeed(e); });
-            div.addEventListener('touchend', toggleNeed);
-            needsList.appendChild(div);
+        createSelectableItems(needsToShow, {
+            className: 'need-item',
+            selectedArray: selectedNeeds,
+            container: needsList
         });
     }
 
@@ -395,7 +379,7 @@ function updateSentenceFromSelections() {
 
 // Clear all feeling selections
 function clearAllFeelings() {
-    selectedFeelings = [];
+    selectedFeelings.length = 0;
 
     // Remove selected class from all feeling items in explorer
     document.querySelectorAll('.feeling-item.selected').forEach(item => {
@@ -416,7 +400,7 @@ function clearAllFeelings() {
 
 // Clear all need selections
 function clearAllNeeds() {
-    selectedNeeds = [];
+    selectedNeeds.length = 0;
 
     // Remove selected class from all need items in needs explorer
     document.querySelectorAll('.need-item.selected').forEach(item => {
@@ -481,80 +465,18 @@ function initThoughtTransformer() {
 
         // Create clickable feeling items
         const feelingsList = document.getElementById('transformer-feelings-list');
-        feelingsSuggestions.forEach(feeling => {
-            const div = document.createElement('div');
-            div.className = 'suggestion-item';
-            div.textContent = feeling;
-
-            // Check if already selected
-            if (selectedFeelings.includes(feeling)) {
-                div.classList.add('selected');
-            }
-
-            const toggleFeeling = (e) => {
-                // Ignore if user was scrolling
-                if (e.type === 'touchend' && shouldIgnoreTap()) {
-                    return;
-                }
-                e.preventDefault();
-                div.classList.toggle('selected');
-
-                // Update global selection
-                if (div.classList.contains('selected')) {
-                    if (!selectedFeelings.includes(feeling)) {
-                        selectedFeelings.push(feeling);
-                    }
-                } else {
-                    selectedFeelings = selectedFeelings.filter(f => f !== feeling);
-                }
-
-                // Update sentence builder
-                updateSentenceFromSelections();
-            };
-
-            div.addEventListener('click', (e) => { if (e.pointerType !== 'touch') toggleFeeling(e); });
-            div.addEventListener('touchend', toggleFeeling);
-
-            feelingsList.appendChild(div);
+        createSelectableItems(feelingsSuggestions, {
+            className: 'suggestion-item',
+            selectedArray: selectedFeelings,
+            container: feelingsList
         });
 
         // Create clickable need items
         const needsList = document.getElementById('transformer-needs-list');
-        needsSuggestions.forEach(need => {
-            const div = document.createElement('div');
-            div.className = 'suggestion-item';
-            div.textContent = need;
-
-            // Check if already selected
-            if (selectedNeeds.includes(need)) {
-                div.classList.add('selected');
-            }
-
-            const toggleNeed = (e) => {
-                // Ignore if user was scrolling
-                if (e.type === 'touchend' && shouldIgnoreTap()) {
-                    return;
-                }
-                e.preventDefault();
-                div.classList.toggle('selected');
-
-                // Update global selection
-                if (div.classList.contains('selected')) {
-                    if (!selectedNeeds.includes(need)) {
-                        selectedNeeds.push(need);
-                    }
-                } else {
-                    selectedNeeds = selectedNeeds.filter(n => n !== need);
-                }
-
-                // Update sentence builder
-                updateSentenceFromSelections();
-            };
-
-            div.addEventListener('click', (e) => { if (e.pointerType !== 'touch') toggleNeed(e); });
-            div.addEventListener('touchend', toggleNeed);
-
-            needsList.appendChild(div);
+        createSelectableItems(needsSuggestions, {
+            className: 'suggestion-item',
+            selectedArray: selectedNeeds,
+            container: needsList
         });
     }
 
